@@ -1,0 +1,19 @@
+.header {
+    @apply w-full mb-4 flex flex-row justify-between items-center;
+
+    .inputGroup {
+        @apply flex flex-row items-center w-fit;
+
+        input {
+            @apply border-2 border-gray-300 rounded-l-md px-5 py-1 border-r-0 hover:outline-none focus:outline-none;
+        }
+
+        .button {
+            @apply bg-blue-500 border-l-0 rounded-l-none text-white px-4 py-1 rounded-md border-2 border-blue-500 hover:bg-blue-600 hover:border-blue-600;
+        }
+    }
+
+    .select {
+        @apply border-2 border-gray-300 bg-white rounded-md px-3 py-1 hover:outline-none focus:outline-none ml-5;
+    }
+}
