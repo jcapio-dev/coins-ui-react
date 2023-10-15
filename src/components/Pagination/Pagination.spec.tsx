@@ -7,17 +7,17 @@ describe('Pagination', () => {
 
     it('renders the correct showing text', () => {
         const { getByText } = render(<Pagination total={20} currentPage={2} onPageChange={onPageChange} />);
-        expect(getByText('Showing 20 out of 20')).toBeInTheDocument();
+        expect(getByText('11-20 of 20 results')).toBeInTheDocument();
     });
 
     it('renders the correct showing text when on the last page', () => {
         const { getByText } = render(<Pagination total={25} currentPage={3} onPageChange={onPageChange} />);
-        expect(getByText('Showing 25 out of 25')).toBeInTheDocument();
+        expect(getByText('21-25 of 25 results')).toBeInTheDocument();
     });
 
     it('renders the correct showing text when there is only one page', () => {
         const { getByText } = render(<Pagination total={11} currentPage={1} onPageChange={onPageChange} />);
-        expect(getByText('Showing 10 out of 11')).toBeInTheDocument();
+        expect(getByText('1-10 of 11 results')).toBeInTheDocument();
     });
 
     it('renders the Prev and Next buttons when there are more than 10 items', () => {

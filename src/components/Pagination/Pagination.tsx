@@ -15,13 +15,14 @@ export default function Pagination({ total, currentPage, onPageChange}: Props) {
     },[total])
     const showingText = useMemo(() => {
         const totalPage = Math.ceil(total / 10)
+        // 1-6 of 6 results
         if (totalPage === 1) {
-            return `Showing ${total} out of ${total}`
+            return `1-${total} of ${total} results`
         }
         if (currentPage === totalPage) {
-            return `Showing ${total} out of ${total}`
+            return `${(currentPage - 1) * 10 + 1}-${total} of ${total} results`
         }
-        return `Showing ${currentPage * 10} out of ${total}`
+        return `${(currentPage - 1) * 10 + 1}-${currentPage * 10} of ${total} results`
     }, [total, currentPage])
     return (
         <>
