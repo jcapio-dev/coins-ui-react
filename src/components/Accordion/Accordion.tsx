@@ -18,7 +18,7 @@ export default function Accordion({ items }: PropsWithChildren<Props>) {
     return (
         <div className={styles.accordion}>
             {items.map((item, index) => (
-                <div key={index} className={styles.accordionItem}>
+                <div key={index} className={styles.accordionItem} data-testid="accordion-item">
                     <div className={styles.toggle} onClick={() => handleItemClick(index)}>{item.title}</div>
                     {index === selectedItem && <div>{item.content}</div>}
                 </div>

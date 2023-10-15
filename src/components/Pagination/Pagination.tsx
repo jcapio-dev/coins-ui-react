@@ -9,7 +9,10 @@ type Props = {
     onPageChange: (page: number) => void
 }
 
-export default function Pagination({ total, currentPage, nextLink, prevLink, onPageChange}: Props) {
+export default function Pagination({ total, currentPage, onPageChange}: Props) {
+    const pageCount = useMemo(() => {
+        return Math.ceil(total / 10)
+    },[total])
     const showingText = useMemo(() => {
         const totalPage = Math.ceil(total / 10)
         if (totalPage === 1) {
@@ -27,8 +30,8 @@ export default function Pagination({ total, currentPage, nextLink, prevLink, onP
                 (<div className={styles.paginationWrapper}>
                     <div>{showingText}</div>
                     <div className='flex flex-row gap-2'>
-                        <button disabled={!prevLink} className={styles.paginationButton} onClick={() => onPageChange(currentPage - 1)}>Prev</button>
-                        <button disabled={!nextLink} className={styles.paginationButton} onClick={() => onPageChange(currentPage + 1)}>Next</button>
+                        <button disabled={currentPage === 1} className={styles.paginationButton} onClick={() => onPageChange(currentPage - 1)}>Prev</button>
+                        <button disabled={currentPage === pageCount} className={styles.paginationButton} onClick={() => onPageChange(currentPage + 1)}>Next</button>
                     </div>
                 </div>)
             }
